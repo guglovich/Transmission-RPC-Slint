@@ -1,0 +1,11 @@
+/home/jinseoyeon/transmission-gui/target/release/deps/wayland_sys-63ef0674799ff97a.d: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/common.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/client.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/server.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/egl.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libwayland_sys-63ef0674799ff97a.rlib: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/common.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/client.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/server.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/egl.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libwayland_sys-63ef0674799ff97a.rmeta: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/common.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/client.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/server.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/egl.rs
+
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/lib.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/common.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/client.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/server.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-sys-0.31.10/src/egl.rs:

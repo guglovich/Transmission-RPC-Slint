@@ -1,0 +1,10 @@
+cargo:rerun-if-changed=/home/jinseoyeon/transmission-gui/target/release/build/SLINT_DEFAULT_STYLE.txt
+cargo:rerun-if-changed=/home/jinseoyeon/transmission-gui/ui/main.slint
+cargo:rerun-if-env-changed=SLINT_STYLE
+cargo:rerun-if-env-changed=SLINT_FONT_SIZES
+cargo:rerun-if-env-changed=SLINT_SCALE_FACTOR
+cargo:rerun-if-env-changed=SLINT_ASSET_SECTION
+cargo:rerun-if-env-changed=SLINT_EMBED_RESOURCES
+cargo:rerun-if-env-changed=SLINT_EMIT_DEBUG_INFO
+cargo:rerun-if-env-changed=SLINT_LIVE_PREVIEW
+cargo:rustc-env=SLINT_INCLUDE_GENERATED=/home/jinseoyeon/transmission-gui/target/release/build/transmission-gui-c96332d5f0669d02/out/main.rs

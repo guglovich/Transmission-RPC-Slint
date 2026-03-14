@@ -1,0 +1,3 @@
+cargo:rustc-check-cfg=cfg(slint_debug_property)
+cargo:rerun-if-changed=widgets
+cargo:rustc-env=SLINT_WIDGETS_LIBRARY=/home/jinseoyeon/transmission-gui/target/release/build/i-slint-compiler-3a266fd83080a581/out/included_library.rs

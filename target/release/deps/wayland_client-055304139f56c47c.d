@@ -1,0 +1,10 @@
+/home/jinseoyeon/transmission-gui/target/release/deps/wayland_client-055304139f56c47c.d: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/conn.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/event_queue.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/globals.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libwayland_client-055304139f56c47c.rlib: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/conn.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/event_queue.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/globals.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libwayland_client-055304139f56c47c.rmeta: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/conn.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/event_queue.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/globals.rs
+
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/lib.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/conn.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/event_queue.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wayland-client-0.31.13/src/globals.rs:

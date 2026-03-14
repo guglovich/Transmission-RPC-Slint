@@ -1,0 +1,11 @@
+/home/jinseoyeon/transmission-gui/target/release/deps/htmlparser-eccbbdf2a4f6f9f4.d: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/error.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/stream.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/strspan.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/xmlchar.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libhtmlparser-eccbbdf2a4f6f9f4.rlib: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/error.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/stream.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/strspan.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/xmlchar.rs
+
+/home/jinseoyeon/transmission-gui/target/release/deps/libhtmlparser-eccbbdf2a4f6f9f4.rmeta: /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/lib.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/error.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/stream.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/strspan.rs /home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/xmlchar.rs
+
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/lib.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/error.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/stream.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/strspan.rs:
+/home/jinseoyeon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/htmlparser-0.2.1/src/xmlchar.rs:
