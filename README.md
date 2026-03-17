@@ -13,11 +13,8 @@ No GTK, no Qt — pure Rust rendering via Skia/OpenGL or Vulkan.
 |---|---|---|---|---|
 | Type | Remote only | Remote only | Standalone + Remote | Standalone |
 | Toolkit | Slint (Rust) | GTK 3 | Qt 5/6 | GTK 4 |
-| GTK dependency | ✅ None | ❌ GTK 3 | ❌ Qt libs | ❌ GTK 4 |
 | System tray | ✅ Works (SNI/D-Bus) | ✅ Works | ✅ Works | ⚠️ Broken in GTK 4¹ |
-| Disk filter | ✅ | ❌ | ❌ | ❌ |
 | Desktop notifications | ✅ | ✅ | ✅ | ✅ |
-| i18n (ru/en) | ✅ | ✅ | ✅ | ✅ |
 | RAM (idle) | ~50 MB | ~80 MB | ~90 MB | ~150 MB |
 | License | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later |
 

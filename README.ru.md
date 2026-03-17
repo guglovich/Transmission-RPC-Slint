@@ -15,11 +15,8 @@
 |---|---|---|---|---|
 | Тип | Только remote | Только remote | Standalone + Remote | Standalone |
 | Тулкит | Slint (Rust) | GTK 3 | Qt 5/6 | GTK 4 |
-| Зависимость от GTK | ✅ Нет | ❌ GTK 3 | ❌ Qt libs | ❌ GTK 4 |
 | Системный трей | ✅ Работает (SNI/D-Bus) | ✅ Работает | ✅ Работает | ⚠️ Сломан в GTK 4¹ |
-| Фильтр по диску | ✅ | ❌ | ❌ | ❌ |
 | Уведомления | ✅ | ✅ | ✅ | ✅ |
-| i18n (ru/en) | ✅ | ✅ | ✅ | ✅ |
 | ОЗУ (idle) | ~50 МБ | ~80 МБ | ~90 МБ | ~150 МБ |
 | Лицензия | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later |
 
