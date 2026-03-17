@@ -28,17 +28,17 @@ optdepends=(
     'snixembed: system tray support in XFCE/Openbox'
     'xfce4-statusnotifier-plugin: system tray support in XFCE'
 )
-source=("$pkgname-$pkgver.tar.gz::https://github.com/guglovich/Transmission-Remote-Slint/archive/refs/tags/v0.3.tar.gz")
-sha256sums=('d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/guglovich/Transmission-Remote-Slint/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('62502d9dc98dbfa668a9b7b39ebbf8b788e7ef6dfd261fdbb2b89f69fdb77243')
 
 prepare() {
-    cd "Transmission-Remote-Slint-0.3"
+    cd "Transmission-Remote-Slint-${pkgver}"
     export CARGO_HOME="$srcdir/cargo-home"
     cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
 }
 
 build() {
-    cd "Transmission-Remote-Slint-0.3"
+    cd "Transmission-Remote-Slint-${pkgver}"
     export CARGO_HOME="$srcdir/cargo-home"
     export RUSTUP_TOOLCHAIN=stable
     export CARGO_TARGET_DIR=target
@@ -46,13 +46,13 @@ build() {
 }
 
 check() {
-    cd "Transmission-Remote-Slint-0.3"
+    cd "Transmission-Remote-Slint-${pkgver}"
     export CARGO_HOME="$srcdir/cargo-home"
     cargo test --frozen --release 2>/dev/null || true
 }
 
 package() {
-    cd "Transmission-Remote-Slint-0.3"
+    cd "Transmission-Remote-Slint-${pkgver}"
 
     install -Dm755 "target/release/transmission-remote-slint" \
         "$pkgdir/usr/bin/transmission-remote-slint"
