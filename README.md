@@ -48,6 +48,8 @@ No GTK, no Qt — pure Rust rendering via Skia/OpenGL or Vulkan.
 
 ### AUR (Arch Linux) — build from source
 
+- AUR: https://aur.archlinux.org/packages/transmission-remote-slint
+
 ```bash
 paru -S transmission-remote-slint
 
@@ -59,8 +61,10 @@ makepkg -si
 
 ### AUR — prebuilt binary
 
+- AUR: https://aur.archlinux.org/packages/transmission-remote-slint-bin
+
 ```bash
-yay -S transmission-remote-slint-bin
+paru -S transmission-remote-slint-bin
 ```
 
 ### Build from source

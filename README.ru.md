@@ -50,6 +50,8 @@
 
 ### AUR (Arch Linux) — сборка из исходников
 
+- AUR: https://aur.archlinux.org/packages/transmission-remote-slint
+
 ```bash
 paru -S transmission-remote-slint
 
@@ -60,6 +62,8 @@ makepkg -si
 ```
 
 ### AUR — готовый бинарник
+
+- AUR: https://aur.archlinux.org/packages/transmission-remote-slint-bin
 
 ```bash
 paru -S transmission-remote-slint-bin
