@@ -296,7 +296,7 @@ component TorrentRow inherits Rectangle {
 
         // Имя + прогресс + ошибка
         VerticalLayout {
-            width: 290px; alignment: center; spacing: 3px;
+            horizontal-stretch: 1; alignment: center; spacing: 3px;
             Text {
                 text: item.name; color: #d0d8ec;
                 font-size: 13px; overflow: elide;
@@ -336,8 +336,6 @@ component TorrentRow inherits Rectangle {
             width: 80px; text: "↑ " + item.up-speed;
             color: #c87e28; font-size: 12px; vertical-alignment: center;
         }
-
-        Rectangle { horizontal-stretch: 1; }
 
         HorizontalLayout {
             spacing: 2px; alignment: center;
@@ -696,14 +694,13 @@ export component MainWindow inherits Window {
             height: 22px; background: #0b1420;
             HorizontalLayout {
                 padding-left: 12px; padding-right: 6px; spacing: 0px;
-                Text { width: 290px; text: "Name";   color: #344458; font-size: 10px; vertical-alignment: center; }
+                Text { horizontal-stretch: 1; text: "Name";   color: #344458; font-size: 10px; vertical-alignment: center; }
                 Rectangle { width: 10px; }
                 Text { width: 90px;  text: "Status"; color: #344458; font-size: 10px; vertical-alignment: center; }
                 Text { width: 44px;  text: "Done";   color: #344458; font-size: 10px; horizontal-alignment: right; vertical-alignment: center; }
                 Rectangle { width: 10px; }
                 Text { width: 80px;  text: "↓ Down"; color: #344458; font-size: 10px; vertical-alignment: center; }
                 Text { width: 80px;  text: "↑ Up";   color: #344458; font-size: 10px; vertical-alignment: center; }
-                Rectangle { horizontal-stretch: 1; }
                 Text { width: 82px;  text: "Actions";color: #344458; font-size: 10px; horizontal-alignment: center; vertical-alignment: center; }
                 Rectangle { width: 4px; }
             }
