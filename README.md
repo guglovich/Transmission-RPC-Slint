@@ -1,106 +1,183 @@
-# Transmission GUI
+# Transmission Remote — Slint
 
-A native desktop GUI for **Transmission daemon** built with **Rust + Slint**.
+A lightweight native desktop GUI for **Transmission daemon** built with **Rust + Slint**.  
+No GTK, no Qt — pure Rust rendering via Skia/OpenGL or Vulkan.
+
+> **Developed with assistance from Claude (Anthropic AI).**
+
+---
+
+## Comparison
+
+| Feature | **transmission-remote-slint** | transmission-remote-gtk | transmission-qt | Transmission GTK 4.x |
+|---|---|---|---|---|
+| Type | Remote only | Remote only | Standalone + Remote | Standalone |
+| Toolkit | Slint (Rust) | GTK 3 | Qt 5/6 | GTK 4 |
+| System tray | ✅ Works (SNI/D-Bus) | ✅ Works | ✅ Works | ⚠️ Broken in GTK 4¹ |
+| Desktop notifications | ✅ | ✅ | ✅ | ✅ |
+| RAM (idle) | ~50 MB | ~80 MB | ~90 MB | ~150 MB |
+| License | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later |
+
+> ¹ GTK 4 dropped tray support. The fix is in development but not yet merged as of early 2026.  
+> RAM figures are approximate, measured on Arch Linux with ~50 torrents.
+
+---
 
 ## Features
 
-| Feature | Details |
-|---|---|
-| Torrent list | Name, status, progress bar, ↓/↑ speed |
-| Per-torrent control | ▶ Start / ⏸ Stop button on each row |
-| Bulk actions | "Start All" / "Stop All" with confirmation |
-| Delete | 🗑 Remove (keep files) · 💥 Remove + delete files — both with confirm dialog |
-| Auto-refresh | Polls Transmission every **2 seconds** via async tokio |
-| Virtual scroll | `ScrollView` over a `VecModel` — handles hundreds of torrents efficiently |
-| Architecture | tokio async backend ↔ sync channels ↔ Slint UI thread |
+- **Torrent list** — name, status, progress, ↓/↑ speed, inline error messages
+- **Per-torrent actions** — Start / Pause / Recheck / Open folder / Remove / Delete with files
+- **Bulk actions** — Start All / Stop All with confirmation dialog
+- **Disk filter bar** — group and pause/resume torrents by physical disk (detected via `lsblk`)
+- **Instant search** — filter by torrent name without waiting for RPC
+- **System tray** — StatusNotifierItem via D-Bus (native zbus 4, no ksni/GTK)
+- **Desktop notifications** — download complete, recheck done, torrent errors
+- **Single instance** — second launch focuses the window or adds a `.torrent` file
+- **Auto-detect Transmission** — reads `settings.json`, starts daemon if not running
+- **`.torrent` file handler** — open from file manager or pass as argument
+- **i18n** — Russian and English, configurable in `config.toml`
+- **App icon** — embedded in binary, installed to hicolor theme via PKGBUILD
+- **Autostart** — optional `.desktop` entry in `~/.config/autostart/`
+- **Render backend** — auto-selects Vulkan → OpenGL → Software
 
-## Prerequisites
+---
 
-### Rust toolchain
+## Installation
+
+### AUR (Arch Linux) — build from source
+
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+paru -S transmission-remote-slint
+# or manually:
+git clone https://aur.archlinux.org/transmission-remote-slint.git
+cd transmission-remote-slint
+makepkg -si
 ```
 
-### System libraries (Linux / Debian/Ubuntu)
+### AUR — prebuilt binary
+
 ```bash
-sudo apt install -y \
-  build-essential cmake pkg-config \
+paru -S transmission-remote-slint-bin
+```
+
+### Build from source
+
+```bash
+# Arch
+sudo pacman -S rust base-devel libxcb libxkbcommon fontconfig freetype2
+
+# Debian/Ubuntu
+sudo apt install -y build-essential cargo pkg-config \
   libfontconfig1-dev libfreetype-dev \
   libxcb-shape0-dev libxcb-xfixes0-dev libxcb-render0-dev \
-  libxkbcommon-dev libwayland-dev
+  libxkbcommon-dev
+
+git clone https://github.com/guglovich/Transmission-Remote-Slint.git
+cd Transmission-Remote-Slint
+cargo build --release
+./target/release/transmission-remote-slint
 ```
 
-### macOS
-Xcode Command Line Tools are sufficient — no extra libraries needed.
+---
 
-### Windows
-MSVC toolchain (`rustup default stable-x86_64-pc-windows-msvc`). No extra setup.
+## Optional runtime dependencies
 
-## Build & Run
+| Package | Purpose |
+|---|---|
+| `zenity` or `kdialog` | File picker dialogs |
+| `libnotify` | Desktop notifications |
+| `snixembed` | Tray support in XFCE / Openbox |
+| `xfce4-statusnotifier-plugin` | Tray support in XFCE (alternative) |
+| `xdotool` | Taskbar icon via `_NET_WM_ICON` |
 
-```bash
-# Clone / unzip the project, then:
-cd transmission-gui
-cargo run --release
-```
-
-First build downloads and compiles ~80 crates (~2-3 min on a modern machine).
+---
 
 ## Configuration
 
-Edit the constant at the top of `src/rpc.rs` to change the Transmission address:
+Config file: `~/.config/transmission-gui/config.toml`  
+Created automatically on first launch:
 
-```rust
-const RPC_URL: &str = "http://localhost:9091/transmission/rpc";
+```toml
+language = "ru"                 # "ru" or "en"
+suspend_on_hide = false         # freeze process when minimized to tray
+start_minimized = false         # start hidden in tray
+refresh_interval_secs = 2       # poll interval
+delete_torrent_after_add = true # delete .torrent file after adding (like Transmission GTK)
+autostart = false
 ```
 
-If your daemon requires **authentication**, add:
+Transmission connection is auto-detected from `settings.json` in standard locations.
 
-```rust
-.basic_auth("username", Some("password"))
+---
+
+## Command-line options
+
+```
+transmission-remote-slint [FILE.torrent] [--gl|--vk|--sw|--wl]
+
+--gl    Force OpenGL renderer
+--vk    Force Vulkan renderer
+--sw    Force software renderer (CPU)
+--wl    Force Wayland backend
 ```
 
-to the `reqwest` request builder in `TransmissionClient::call()`.
+---
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  UI Thread (Slint event loop)                               │
-│  ┌──────────────┐    Timer @20Hz drains channels            │
-│  │  MainWindow  │◄── update_rx (Vec<RawTorrent>)            │
-│  │  VecModel    │◄── status_rx (String)                     │
-│  │  Callbacks   │──► cmd_tx  (Command enum)                 │
-│  └──────────────┘                                           │
-└──────────────────────────┬──────────────────────────────────┘
-                           │  mpsc channels (thread-safe)
-┌──────────────────────────▼──────────────────────────────────┐
-│  Tokio async runtime (separate OS threads)                  │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │  backend_task                                          │ │
-│  │    tokio::select!                                      │ │
-│  │      cmd_rx.recv()  → immediate RPC action             │ │
-│  │      interval.tick()→ torrent-get every 2s             │ │
-│  └────────────────────────────────────────────────────────┘ │
-│  ┌─────────────────────────────┐                            │
-│  │  TransmissionClient (rpc.rs)│                            │
-│  │  reqwest HTTP + 409 retry   │                            │
-│  └─────────────────────────────┘                            │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│  Slint UI thread (event loop)                            │
+│  MainWindow ◄── update_rx (torrents + stats)  500ms pump │
+│             ◄── status_rx (status bar text)              │
+│             ──► cmd_tx   (Command enum)                  │
+└─────────────────────────┬────────────────────────────────┘
+                          │  std::sync::mpsc
+┌─────────────────────────▼────────────────────────────────┐
+│  Tokio async runtime                                     │
+│  backend_task: tokio::select!                            │
+│    cmd_rx  → immediate RPC call                          │
+│    interval tick → recently-active delta every 2s        │
+│  TransmissionClient (reqwest, 409 session retry)         │
+└──────────────────────────────────────────────────────────┘
 ```
 
-**Zero UI logic in .slint** — all business logic lives in Rust.  
-Slint only renders; the `VecModel` diff ensures minimal repaints.
+---
 
-## File Structure
+## File structure
 
 ```
-transmission-gui/
 ├── Cargo.toml
-├── build.rs          ← compiles main.slint
+├── Cargo.lock
+├── build.rs
 ├── ui/
-│   └── main.slint    ← all UI layout & styling
+│   ├── main.slint
+│   └── app-icon.png
 └── src/
-    ├── main.rs       ← UI wiring, channel pump, Slint model updates
-    └── rpc.rs        ← async Transmission JSON-RPC client
+    ├── main.rs            ← UI wiring, timers, model updates
+    ├── rpc.rs             ← async Transmission JSON-RPC client
+    ├── config.rs          ← reads Transmission settings.json
+    ├── app_config.rs      ← application config
+    ├── daemon.rs          ← auto-start/stop transmission-daemon
+    ├── disks.rs           ← physical disk detection via lsblk
+    ├── tray.rs            ← StatusNotifierItem (native zbus 4)
+    ├── notify.rs          ← desktop notifications
+    ├── filepicker.rs      ← zenity/kdialog file dialogs
+    ├── single_instance.rs ← Unix socket single-instance lock
+    ├── wm_icon.rs         ← _NET_WM_ICON taskbar icon (X11)
+    ├── suspend.rs         ← SIGSTOP/SIGCONT process suspend
+    └── i18n.rs            ← ru/en static strings
 ```
+
+---
+
+## Русская документация
+
+См. [README.ru.md](README.ru.md)
+
+---
+
+## License
+
+GPL-2.0-or-later. See [LICENSE](LICENSE).  
+Uses [Slint](https://slint.dev) under GPLv3.
