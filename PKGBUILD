@@ -32,7 +32,7 @@ optdepends=(
     'xdotool: taskbar icon support'
 )
 source=("$pkgname-$pkgver.tar.gz::https://github.com/guglovich/Transmission-Remote-Slint/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('ef15d6e1a9f2bd2f04afe09b7fd90a5c8346ae3c7ebce58a59765fbc77770c50')
 
 prepare() {
     cd "Transmission-Remote-Slint-${pkgver}"
