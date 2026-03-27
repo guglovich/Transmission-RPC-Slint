@@ -5,7 +5,7 @@ No GTK, no Qt — pure Rust rendering via Skia/OpenGL or Vulkan.
 
 > **Developed with assistance from Claude (Anthropic AI).**
 
-🇷🇺 [Читать на русском](README.ru.md)
+ [Читать на русском](README.ru.md)
 
 ---
 
