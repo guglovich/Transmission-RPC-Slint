@@ -248,3 +248,13 @@ The first stable release with a minimal but complete feature set designed for a 
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).  
 Uses [Slint](https://slint.dev) under GPLv3.
+
+---
+
+## Support My Work
+
+If you find this project useful, consider supporting my open source work:
+
+[![Support](https://img.shields.io/badge/Support-My%20Work-2ea043?logo=github)](https://guglovich.github.io/donate/)
+
+Your donations help fund AI agent subscriptions and development time.
