@@ -5,7 +5,7 @@
 
 > **Разработано с помощью Claude (Anthropic AI).**
 
-🇬🇧 [Read in English](README.md)
+ [Read in English](README.md)
 
 ---
 
