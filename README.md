@@ -55,11 +55,9 @@ The result: the UI stays responsive at 1,000+ or 4,000+ torrents because the mai
 | Virtual scrolling | ✅ | ❌ | ❌ | ❌ |
 | System tray | ✅ Works (SNI/D-Bus) | ✅ Works | ✅ Works | ⚠️ Broken in GTK 4¹ |
 | Desktop notifications | ✅ | ✅ | ✅ | ✅ |
-| RAM (idle, ~50 torrents) | ~50 MB | ~80 MB | ~90 MB | ~150 MB |
 | License | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later | GPL-2.0-or-later |
 
 > ¹ GTK 4 dropped tray support. The fix (`feature/gh7364-gtk-sni`) is in development but not yet merged as of early 2026.  
-> RAM figures are approximate, measured on Arch Linux.
 
 ---
 
