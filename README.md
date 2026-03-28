@@ -227,7 +227,7 @@ Planned for 1.0:
 - Torrent creation dialog
 - Per-torrent bandwidth scheduling
 
-<img width="1625" height="965" alt="изображение" src="https://github.com/user-attachments/assets/9f49fd07-79d5-4842-bf12-5645909f2c5b" />
+<img width="1625" height="962" alt="изображение" src="https://github.com/user-attachments/assets/b988e481-9150-4053-9433-df95d7c3d4cf" />
 
 
 > If you'd like to follow progress or leave feedback on the direction, open a Discussion or an Issue.
